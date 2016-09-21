@@ -1,12 +1,17 @@
 from __future__ import print_function
 
 import sys
+import re
+import string
 from operator import add
 from pyspark import SparkContext
 
 
 def words_from_line(line):
-    return line.split(' ')
+    line = re.sub(r'[^\d*:\d*]', '', line)
+    return line.translate(string.maketrans("", ""), string.punctuation) \
+        .lower() \
+        .split()
 
 
 if __name__ == "__main__":
