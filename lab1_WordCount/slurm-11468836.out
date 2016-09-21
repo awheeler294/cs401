@@ -1,0 +1,173 @@
+Warning: Permanently added 'm9-2-1' (RSA) to the list of known hosts.
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+mkdir: cannot create directory `/tmp/11468836': File exists
+Warning: Permanently added 'm9-61-1' (RSA) to the list of known hosts.
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+Warning: Permanently added 'm9-63-4' (RSA) to the list of known hosts.
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+Warning: Permanently added 'm9-64-2' (RSA) to the list of known hosts.
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+['m9-2-1', 'm9-61-1', 'm9-63-4', 'm9-64-2']
+SLURM_CPUS_ON_NODE = 16
+Set hadoop.tmp.dir to /fslhome/andrew54/.hadoop/tmp
+Set mapred.job.tracker to m9-2-1:36125
+Set mapred.local.dir to /tmp/11468836/mapred-local
+Set mapred.tasktracker.map.tasks.maximum to 15
+Set mapred.tasktracker.reduce.tasks.maximum to 15
+Starting Hadoop Cluster:
+starting jobtracker, logging to /fslhome/andrew54/.hadoop/logs/hadoop-andrew54-jobtracker-m9-2-1.out
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: starting tasktracker, logging to /fslhome/andrew54/.hadoop/logs/hadoop-andrew54-tasktracker-m9-2-1.out
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: starting tasktracker, logging to /fslhome/andrew54/.hadoop/logs/hadoop-andrew54-tasktracker-m9-63-4.out
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: starting tasktracker, logging to /fslhome/andrew54/.hadoop/logs/hadoop-andrew54-tasktracker-m9-61-1.out
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: starting tasktracker, logging to /fslhome/andrew54/.hadoop/logs/hadoop-andrew54-tasktracker-m9-64-2.out
+16/09/09 20:53:19 INFO ipc.Client: Retrying connect to server: m9-2-1/192.168.221.124:36125. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+16/09/09 20:53:19 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+16/09/09 20:53:19 INFO input.FileInputFormat: Total input paths to process : 1
+16/09/09 20:53:19 WARN snappy.LoadSnappy: Snappy native library not loaded
+16/09/09 20:53:20 INFO mapred.JobClient: Running job: job_201609092053_0001
+16/09/09 20:53:21 INFO mapred.JobClient:  map 0% reduce 0%
+16/09/09 20:53:32 INFO mapred.JobClient:  map 18% reduce 0%
+16/09/09 20:53:33 INFO mapred.JobClient:  map 57% reduce 0%
+16/09/09 20:53:35 INFO mapred.JobClient:  map 74% reduce 0%
+16/09/09 20:53:36 INFO mapred.JobClient:  map 89% reduce 0%
+16/09/09 20:53:37 INFO mapred.JobClient:  map 94% reduce 0%
+16/09/09 20:53:38 INFO mapred.JobClient:  map 100% reduce 0%
+16/09/09 20:53:42 INFO mapred.JobClient:  map 100% reduce 33%
+16/09/09 20:53:44 INFO mapred.JobClient:  map 100% reduce 100%
+16/09/09 20:53:45 INFO mapred.JobClient: Job complete: job_201609092053_0001
+16/09/09 20:53:45 INFO mapred.JobClient: Counters: 27
+16/09/09 20:53:45 INFO mapred.JobClient:   Job Counters 
+16/09/09 20:53:45 INFO mapred.JobClient:     Launched reduce tasks=1
+16/09/09 20:53:45 INFO mapred.JobClient:     SLOTS_MILLIS_MAPS=110039
+16/09/09 20:53:45 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+16/09/09 20:53:45 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+16/09/09 20:53:45 INFO mapred.JobClient:     Rack-local map tasks=9
+16/09/09 20:53:45 INFO mapred.JobClient:     Launched map tasks=9
+16/09/09 20:53:45 INFO mapred.JobClient:     SLOTS_MILLIS_REDUCES=8780
+16/09/09 20:53:45 INFO mapred.JobClient:   File Output Format Counters 
+16/09/09 20:53:45 INFO mapred.JobClient:     Bytes Written=6447
+16/09/09 20:53:45 INFO mapred.JobClient:   FileSystemCounters
+16/09/09 20:53:45 INFO mapred.JobClient:     FILE_BYTES_READ=300183083
+16/09/09 20:53:45 INFO mapred.JobClient:     FILE_BYTES_WRITTEN=2118265
+16/09/09 20:53:45 INFO mapred.JobClient:   File Input Format Counters 
+16/09/09 20:53:45 INFO mapred.JobClient:     Bytes Read=298515424
+16/09/09 20:53:45 INFO mapred.JobClient:   Map-Reduce Framework
+16/09/09 20:53:45 INFO mapred.JobClient:     Map output materialized bytes=56214
+16/09/09 20:53:45 INFO mapred.JobClient:     Map input records=934962
+16/09/09 20:53:45 INFO mapred.JobClient:     Reduce shuffle bytes=56214
+16/09/09 20:53:45 INFO mapred.JobClient:     Spilled Records=124850
+16/09/09 20:53:45 INFO mapred.JobClient:     Map output bytes=472126851
+16/09/09 20:53:45 INFO mapred.JobClient:     CPU time spent (ms)=144610
+16/09/09 20:53:45 INFO mapred.JobClient:     Total committed heap usage (bytes)=10290462720
+16/09/09 20:53:45 INFO mapred.JobClient:     Combine input records=43858597
+16/09/09 20:53:45 INFO mapred.JobClient:     SPLIT_RAW_BYTES=954
+16/09/09 20:53:45 INFO mapred.JobClient:     Reduce input records=4086
+16/09/09 20:53:45 INFO mapred.JobClient:     Reduce input groups=454
+16/09/09 20:53:45 INFO mapred.JobClient:     Combine output records=80812
+16/09/09 20:53:45 INFO mapred.JobClient:     Physical memory (bytes) snapshot=4148162560
+16/09/09 20:53:45 INFO mapred.JobClient:     Reduce output records=454
+16/09/09 20:53:45 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=15372374016
+16/09/09 20:53:45 INFO mapred.JobClient:     Map output records=43781871
+execute: ['/fslgroup/fslg_hadoop/hadoop-1.1.2/bin/hadoop', 'jar', '/fslgroup/fslg_hadoop/hadoop-1.1.2/hadoop-examples-1.1.2.jar', 'wordcount', '/fslgroup/fslg_hadoop/loremIpsum.txt', '/fslhome/andrew54/compute/wordcount']
+Shutting Down Hadoop Cluster:
+stopping jobtracker
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: tput: No value for $TERM and no -T specified
+m9-2-1: stopping tasktracker
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: tput: No value for $TERM and no -T specified
+m9-61-1: stopping tasktracker
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: tput: No value for $TERM and no -T specified
+m9-64-2: stopping tasktracker
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: tput: No value for $TERM and no -T specified
+m9-63-4: stopping tasktracker
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
