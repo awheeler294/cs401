@@ -22,6 +22,10 @@ if __name__ == "__main__":
     lines = sc.textFile(sys.argv[1], 1)
     counts = lines.flatMap(words_from_line) \
         .map(lambda x: (x, 1)) \
-        .reduceByKey(add)
+        .reduceByKey(add) \
+        .map(lambda p: (p[1], p[0])) \
+        .sortByKey(0, 1) \
+        .map(lambda p: (p[1], p[0]))
+
     counts.saveAsTextFile(sys.argv[2])
     sc.stop()
