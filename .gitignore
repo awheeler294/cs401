@@ -2,3 +2,4 @@ slurm*.out
 .idea
 .idea/*
 lab1_WordCount/out
+lab2_NetflixUsers/data_sample.txt
