@@ -9,13 +9,12 @@ from pyspark import SparkContext
 USER_ID = 0
 MOVIE_ID = 1
 RATING = 2
-targetUser = ''
 
 
 def data_from_line(line):
     user_data = line.split()
 
-    return user_data[USER_ID] + ' ' + user_data[MOVIE_ID] + ' ' + user_data[RATING]
+    return user_data[MOVIE_ID], [user_data[RATING], user_data[USER_ID]]
 
 
 def map_user_data(target_user_rating, user_data):
@@ -46,15 +45,14 @@ if __name__ == "__main__":
     # userData = lines.flatMap(data_from_line)
 
     # get all movies targetUser rated
-    targetUserRatings = lines.filter(filter_by_target_user)
+    # targetUserRatings = lines.filter(filter_by_target_user)
 
-    counts = targetUserRatings.flatMap(lambda target_user_rating: (map_user_data(target_user_rating, lines))) \
-        .map(lambda x: (x, 1)) \
-        .reduceByKey(add)
-
-    # counts = lines.flatMap(data_from_line) \
+    # counts = targetUserRatings.flatMap(lambda target_user_rating: (map_user_data(target_user_rating, lines))) \
     #     .map(lambda x: (x, 1)) \
     #     .reduceByKey(add)
+
+    counts = lines.flatMap(data_from_line) \
+        .reduceByKey(1)
 
     counts.saveAsTextFile(sys.argv[3])
 
