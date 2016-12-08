@@ -11,7 +11,7 @@ MOVIE_ID = 1
 RATING = 2
 
 
-def data_from_line(line):
+def index_by_movie_id(line):
     user_data = line.split()
 
     return user_data[MOVIE_ID], [user_data[RATING], user_data[USER_ID]]
@@ -22,8 +22,14 @@ def map_user_data(target_user_rating, user_data):
                                                             and y[RATING] == target_user_rating[RATING])))
 
 
-def filter_by_same_rating(line, rating):
-    return
+def filter_by_same_rating(line):
+    movie_id = line[0]
+    rating = line[1][0]
+    for user_rating in ratings.value:
+        if user_rating[MOVIE_ID] == movie_id and user_rating[RATING] == rating:
+            return True
+
+    return False
 
 
 def filter_by_target_user(line):
@@ -37,10 +43,18 @@ if __name__ == "__main__":
         print("Usage: netflix <input> <user> <output>", file=sys.stderr)
         exit(-1)
     global targetUser
+
+    inputFile = sys.argv[1]
+    print(inputFile)
+
     targetUser = sys.argv[2]
-    # print(targetUser)
+    print(targetUser)
+
+    outputFile = sys.argv[3]
+    print(outputFile)
+
     sc = SparkContext(appName="NetflixUsers")
-    lines = sc.textFile(sys.argv[1], 1)
+    lines = sc.textFile(inputFile, 1)
 
     # userData = lines.flatMap(data_from_line)
 
@@ -50,11 +64,19 @@ if __name__ == "__main__":
     # counts = targetUserRatings.flatMap(lambda target_user_rating: (map_user_data(target_user_rating, lines))) \
     #     .map(lambda x: (x, 1)) \
     #     .reduceByKey(add)
+    userRatings = lines.filter(filter_by_target_user)
 
-    counts = lines.flatMap(data_from_line) \
-        .reduceByKey(1)
+    # userRatings.saveAsTextFile(outputFile)
 
-    counts.saveAsTextFile(sys.argv[3])
+    movieIdIndex = lines.map(index_by_movie_id)
+
+    ratings = sc.broadcast(userRatings.collect())
+
+    sameRating = movieIdIndex.filter(filter_by_same_rating)
+
+    # userRatings.map(lambda x: (x[MOVIE_ID], x[RATING])).saveAsTextFile(outputFile)
+    sameRating.saveAsTextFile(outputFile)
+    # movie_id_index.saveAsTextFile(outputFile)
 
     # counts.saveAsTextFile(sys.argv[3])
     sc.stop()
