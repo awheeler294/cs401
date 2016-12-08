@@ -4,7 +4,7 @@
 
 #SBATCH --time=00:05:00   # walltime
 #SBATCH --ntasks=10 # number of processor cores total (i.e. tasks)
-#SBATCH --nodes=4   # number of nodes
+#SBATCH --nodes=2   # number of nodes
 #SBATCH --ntasks-per-node=5   # set 5 processors per node
 #SBATCH --mem-per-cpu=4096M   # 4GB memory per CPU core
 #SBATCH -J "Netflix"   # job name
