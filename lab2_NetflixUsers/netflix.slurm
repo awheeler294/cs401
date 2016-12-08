@@ -54,7 +54,7 @@ export JAVA_HOME=/usr/java/latest/
 module load python/2/7
 
 # python example job
-$SPARK_PATH/bin/spark.py 5 4096 10 "" "~/cs401/lab2_NetflixUsers/netflix.py /fslgroup/fslg_hadoop/netflix_data.txt ${HOME}/compute/netflix"
+$SPARK_PATH/bin/spark.py 5 4096 10 "" "${HOME}/cs401/lab2_NetflixUsers/netflix.py /fslgroup/fslg_hadoop/netflix_data.txt ${HOME}/compute/netflix"
 
 # java example job
 # $SPARK_PATH/bin/spark.py 5 4096 10 "SimpleApp" "${HOME}/example-project-1.0.jar ${HOME}/compute/spark-example-java"
