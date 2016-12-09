@@ -1,8 +1,6 @@
 from __future__ import print_function
 
 import sys
-import re
-import string
 from operator import add
 from pyspark import SparkContext
 
@@ -23,8 +21,6 @@ def map_user_id(line):
 
 
 def filter_by_same_rating(line):
-    # movie_id = line[0]
-    # rating = line[1][0]
     line = line.split()
     for user_rating in ratings.value:
         user_rating = user_rating.split()
@@ -60,10 +56,6 @@ if __name__ == "__main__":
 
     userRatings = lines.filter(filter_by_target_user)
 
-    # userRatings.saveAsTextFile(outputFile)
-
-    # movieIdIndex = lines.map(index_by_movie_id)
-
     ratings = sc.broadcast(userRatings.collect())
 
     sameRating = lines.filter(filter_by_same_rating) \
@@ -74,9 +66,6 @@ if __name__ == "__main__":
         .sortByKey(0, 1) \
         .map(lambda p: (p[1], p[0]))
 
-    # userRatings.map(lambda x: (x[MOVIE_ID], x[RATING])).saveAsTextFile(outputFile)
     sameRating.saveAsTextFile(outputFile)
-    # movie_id_index.saveAsTextFile(outputFile)
 
-    # counts.saveAsTextFile(sys.argv[3])
     sc.stop()
