@@ -2,9 +2,9 @@
 
 #Submit this script with: sbatch spark_template.slurm
 
-#SBATCH --time=00:10:00   # walltime
-#SBATCH --ntasks=10 # number of processor cores total (i.e. tasks)
-#SBATCH --nodes=8   # number of nodes
+#SBATCH --time=01:10:00   # walltime
+#SBATCH --ntasks=50 # number of processor cores total (i.e. tasks)
+#SBATCH --nodes=10   # number of nodes
 #SBATCH --ntasks-per-node=5   # set 5 processors per node
 #SBATCH --mem-per-cpu=4096M   # 4GB memory per CPU core
 #SBATCH -J "Netflix"   # job name
