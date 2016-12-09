@@ -26,6 +26,7 @@ def filter_by_same_rating(line):
     movie_id = line[0]
     rating = line[1][0]
     for user_rating in ratings.value:
+        user_rating = user_rating.split()
         if user_rating[MOVIE_ID] == movie_id and user_rating[RATING] == rating:
             return True
 
