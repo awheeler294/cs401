@@ -23,11 +23,12 @@ def map_user_data(target_user_rating, user_data):
 
 
 def filter_by_same_rating(line):
-    movie_id = line[0]
-    rating = line[1][0]
+    # movie_id = line[0]
+    # rating = line[1][0]
+    line = line.split()
     for user_rating in ratings.value:
         user_rating = user_rating.split()
-        if user_rating[MOVIE_ID] == movie_id and user_rating[RATING] == rating:
+        if user_rating[MOVIE_ID] == line[MOVIE_ID] and user_rating[RATING] == line[RATING]:
             return True
 
     return False
@@ -69,11 +70,17 @@ if __name__ == "__main__":
 
     # userRatings.saveAsTextFile(outputFile)
 
-    movieIdIndex = lines.map(index_by_movie_id)
+    # movieIdIndex = lines.map(index_by_movie_id)
 
     ratings = sc.broadcast(userRatings.collect())
 
-    sameRating = movieIdIndex.filter(filter_by_same_rating)
+    sameRating = lines.filter(filter_by_same_rating) \
+        .flatMap(lambda x: (x.split()[0]))\
+        .map(lambda x: (x, 1)) \
+        .reduceByKey(add) \
+        .map(lambda p: (p[1], p[0])) \
+        .sortByKey(0, 1) \
+        .map(lambda p: (p[1], p[0]))
 
     # userRatings.map(lambda x: (x[MOVIE_ID], x[RATING])).saveAsTextFile(outputFile)
     sameRating.saveAsTextFile(outputFile)
