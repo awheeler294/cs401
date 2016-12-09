@@ -17,9 +17,9 @@ def index_by_movie_id(line):
     return user_data[MOVIE_ID], [user_data[RATING], user_data[USER_ID]]
 
 
-def map_user_data(target_user_rating, user_data):
-    return user_data.filter(lambda x: (lambda y=x.split(): (y[MOVIE_ID] == target_user_rating[MOVIE_ID]
-                                                            and y[RATING] == target_user_rating[RATING])))
+def map_user_id(line):
+    user_data = line.split()
+    return user_data
 
 
 def filter_by_same_rating(line):
@@ -58,14 +58,6 @@ if __name__ == "__main__":
     sc = SparkContext(appName="NetflixUsers")
     lines = sc.textFile(inputFile, 1)
 
-    # userData = lines.flatMap(data_from_line)
-
-    # get all movies targetUser rated
-    # targetUserRatings = lines.filter(filter_by_target_user)
-
-    # counts = targetUserRatings.flatMap(lambda target_user_rating: (map_user_data(target_user_rating, lines))) \
-    #     .map(lambda x: (x, 1)) \
-    #     .reduceByKey(add)
     userRatings = lines.filter(filter_by_target_user)
 
     # userRatings.saveAsTextFile(outputFile)
@@ -75,7 +67,7 @@ if __name__ == "__main__":
     ratings = sc.broadcast(userRatings.collect())
 
     sameRating = lines.filter(filter_by_same_rating) \
-        .flatMap(lambda x: (x.split()[0]))\
+        .map(lambda x: (x.split()[USER_ID])) \
         .map(lambda x: (x, 1)) \
         .reduceByKey(add) \
         .map(lambda p: (p[1], p[0])) \
